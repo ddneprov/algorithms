@@ -1,0 +1,3 @@
+/Users/dneprovdanila/Desktop/winter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/dneprovdanila/Desktop/winter/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dneprovdanila/Desktop/winter/cmake-build-debug/CMakeFiles/winter.dir
