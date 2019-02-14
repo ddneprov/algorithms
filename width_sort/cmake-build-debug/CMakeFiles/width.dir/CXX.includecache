@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dneprovdanila/Desktop/width_sort/Node.h
+string
+-
+vector
+-
+
+/Users/dneprovdanila/Desktop/width_sort/ReadWriter.cpp
+fstream
+-
+exception
+-
+Node.h
+/Users/dneprovdanila/Desktop/width_sort/Node.h
+
+/Users/dneprovdanila/Desktop/width_sort/main.cpp
+ReadWriter.cpp
+/Users/dneprovdanila/Desktop/width_sort/ReadWriter.cpp
+fstream
+-
+exception
+-
+
