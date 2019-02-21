@@ -6,9 +6,50 @@
 #include <set>
 #include <stdlib.h>
 #include <algorithm>
+using namespace std;
 
-vector<vector<string>> getList(vector<string>& names, vector<vector<bool>>& relations)
+
+
+
+
+
+
+static int b = 12;
+
+
+vector<int> order;
+vector<bool> used;
+
+
+
+void dfs(int v, vector<vector<bool>>& relations)
 {
+	used[v] = true;
+	for(int i = 0; i < 12 /*relations[v].size()*/; ++i)
+    {
+	    bool a = !used[v];
+	    bool b = relations[v][i];
+        if (relations[v][i])
+            dfs(v, relations);
+    }
+
+	order.push_back(v);
+	cout << "vertex "<< v <<"\t"<<endl;
+}
+
+
+
+
+
+vector<vector<std::string>> getList(vector<string>& names, vector<vector<bool>>& relations)
+{
+	//int *pre = new int[names.size()];
+
+    int n = relations[1].size();
+    used.assign(n, false);
+    //order.assign(n, 0);
+
+    dfs(1, relations);
 }
 
 int main()
