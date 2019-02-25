@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dneprovdanila/Desktop/time_loop/main.cpp
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+stack
+-
+set
+-
+stdlib.h
+-
+algorithm
+-
+
