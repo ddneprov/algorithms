@@ -10,72 +10,72 @@
 using namespace std;
 
 
-static int COUNT;  ///возможный костыль ( счетчик )
+static int COUNT;  ///РІРѕР·РјРѕР¶РЅС‹Р№ РєРѕСЃС‚С‹Р»СЊ ( СЃС‡РµС‚С‡РёРє )
 /*
- *  поиск в глубину, ШАГ 1
+ *  РїРѕРёСЃРє РІ РіР»СѓР±РёРЅСѓ, РЁРђР“ 1
  */
 void dfs(int v, vector<vector<bool>>& relations,  stack<int>& order, vector<bool>& used) {
-		used[v] = true; // помечаем вершину как посещенную
-		for(int i = 0; i < relations.size(); ++i) // бежим по матрице смежности
-			if (relations[v][i] && !used[i]) // если есть связь где мы еще не были
-				dfs(i, relations, order, used); // рекурсивно вызываем метод
+		used[v] = true; // РїРѕРјРµС‡Р°РµРј РІРµСЂС€РёРЅСѓ РєР°Рє РїРѕСЃРµС‰РµРЅРЅСѓСЋ
+		for(int i = 0; i < relations.size(); ++i) // Р±РµР¶РёРј РїРѕ РјР°С‚СЂРёС†Рµ СЃРјРµР¶РЅРѕСЃС‚Рё
+			if (relations[v][i] && !used[i]) // РµСЃР»Рё РµСЃС‚СЊ СЃРІСЏР·СЊ РіРґРµ РјС‹ РµС‰Рµ РЅРµ Р±С‹Р»Рё
+				dfs(i, relations, order, used); // СЂРµРєСѓСЂСЃРёРІРЅРѕ РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ
 
-		order.push(v); // записываем вершины в стек в порядке убывания пост значения
+		order.push(v); // Р·Р°РїРёСЃС‹РІР°РµРј РІРµСЂС€РёРЅС‹ РІ СЃС‚РµРє РІ РїРѕСЂСЏРґРєРµ СѓР±С‹РІР°РЅРёСЏ РїРѕСЃС‚ Р·РЅР°С‡РµРЅРёСЏ
 }
 
 
 /*
- *  поиск в глубину транспонированного дерева, ШАГ 2-3
+ *  РїРѕРёСЃРє РІ РіР»СѓР±РёРЅСѓ С‚СЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРЅРѕРіРѕ РґРµСЂРµРІР°, РЁРђР“ 2-3
  */
 void rev_dfs(int v, vector<vector<bool>>& relations, vector<string>& names , stack<int>& order, vector<bool>& used, vector<string>& block) {
 
-		used[v] = true; // помечаем вершину как посещенную
-		for(int i = 0; i < relations.size(); ++i) // бежим по матрице смежности
-			if (relations[i][v] && !used[i]) // если есть связь где мы еще не были
-				rev_dfs(i, relations, names, order, used, block); // рекурсивно вызываем метод
+		used[v] = true; // РїРѕРјРµС‡Р°РµРј РІРµСЂС€РёРЅСѓ РєР°Рє РїРѕСЃРµС‰РµРЅРЅСѓСЋ
+		for(int i = 0; i < relations.size(); ++i) // Р±РµР¶РёРј РїРѕ РјР°С‚СЂРёС†Рµ СЃРјРµР¶РЅРѕСЃС‚Рё
+			if (relations[i][v] && !used[i]) // РµСЃР»Рё РµСЃС‚СЊ СЃРІСЏР·СЊ РіРґРµ РјС‹ РµС‰Рµ РЅРµ Р±С‹Р»Рё
+				rev_dfs(i, relations, names, order, used, block); // СЂРµРєСѓСЂСЃРёРІРЅРѕ РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ
 
-		//order.pop(); // вытаскиваю вершину
-		block.emplace_back(names[v]); /// записываю в блок имена
+		//order.pop(); // РІС‹С‚Р°СЃРєРёРІР°СЋ РІРµСЂС€РёРЅСѓ
+		block.emplace_back(names[v]); /// Р·Р°РїРёСЃС‹РІР°СЋ РІ Р±Р»РѕРє РёРјРµРЅР°
 		++COUNT;
 }
 
 
 vector<vector<string>> getList(vector<string>& names, vector<vector<bool>>& relations) {
 
-	vector<vector<string>> total_list; /// вектор векторов, выводимых в output.txt
+	vector<vector<string>> total_list; /// РІРµРєС‚РѕСЂ РІРµРєС‚РѕСЂРѕРІ, РІС‹РІРѕРґРёРјС‹С… РІ output.txt
 
-	vector<bool> used (names.size(), false); /// вектор для проверки использованности
-	stack <int> order; /// стек, использующийся в dfs и rev_dfs для удобной ...
-					   /// ...записи вершин в порядке убывания пост-значений
+	vector<bool> used (names.size(), false); /// РІРµРєС‚РѕСЂ РґР»СЏ РїСЂРѕРІРµСЂРєРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅРѕСЃС‚Рё
+	stack <int> order; /// СЃС‚РµРє, РёСЃРїРѕР»СЊР·СѓСЋС‰РёР№СЃСЏ РІ dfs Рё rev_dfs РґР»СЏ СѓРґРѕР±РЅРѕР№ ...
+					   /// ...Р·Р°РїРёСЃРё РІРµСЂС€РёРЅ РІ РїРѕСЂСЏРґРєРµ СѓР±С‹РІР°РЅРёСЏ РїРѕСЃС‚-Р·РЅР°С‡РµРЅРёР№
 
 
 	for(int i = 0; i < relations.size(); ++i)
 		if (!used[i])
-			dfs(i, relations, order, used); // получил  пост значения
+			dfs(i, relations, order, used); // РїРѕР»СѓС‡РёР»  РїРѕСЃС‚ Р·РЅР°С‡РµРЅРёСЏ
 
-	used.assign(names.size(), false); // опять заполняем false
+	used.assign(names.size(), false); // РѕРїСЏС‚СЊ Р·Р°РїРѕР»РЅСЏРµРј false
 
 
 
-	while (COUNT < names.size()) //считает сколько вершин мы посетили
+	while (COUNT < names.size()) //СЃС‡РёС‚Р°РµС‚ СЃРєРѕР»СЊРєРѕ РІРµСЂС€РёРЅ РјС‹ РїРѕСЃРµС‚РёР»Рё
 	{
 		if (!used[order.top()])
 		{
-			vector<string> block; /// блок имен, которые надо будет отсортировать
-			rev_dfs(order.top(), relations, names , order, used, block); /// запускаем dfs-2
-			sort(block.begin(), block.end()); /// отсортировали имена внутри блока
-			total_list.emplace_back(block); /// записали блок в вектор векторов
+			vector<string> block; /// Р±Р»РѕРє РёРјРµРЅ, РєРѕС‚РѕСЂС‹Рµ РЅР°РґРѕ Р±СѓРґРµС‚ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ
+			rev_dfs(order.top(), relations, names , order, used, block); /// Р·Р°РїСѓСЃРєР°РµРј dfs-2
+			sort(block.begin(), block.end()); /// РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°Р»Рё РёРјРµРЅР° РІРЅСѓС‚СЂРё Р±Р»РѕРєР°
+			total_list.emplace_back(block); /// Р·Р°РїРёСЃР°Р»Рё Р±Р»РѕРє РІ РІРµРєС‚РѕСЂ РІРµРєС‚РѕСЂРѕРІ
 			order.pop();
 		}
 		else
 		{
 			//++COUNT;
-			order.pop(); // вытаскиваю вершину
+			order.pop(); // РІС‹С‚Р°СЃРєРёРІР°СЋ РІРµСЂС€РёРЅСѓ
 		}
 	}
 
 
-	/// сортируем блоки по первому элементу
+	/// СЃРѕСЂС‚РёСЂСѓРµРј Р±Р»РѕРєРё РїРѕ РїРµСЂРІРѕРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 	sort(total_list.begin(), total_list.end(), [](vector<string> &left, vector<string> &right) {
 		return left.front() < right.front();
 	});
@@ -105,7 +105,7 @@ int main()
 
 		relations = vector<vector<bool>>(names.size());
 
-		///заполняем "нулями"
+		///Р·Р°РїРѕР»РЅСЏРµРј "РЅСѓР»СЏРјРё"
 		for (int i = 0; i < names.size(); i++)
 		{
 			relations[i] = vector<bool>(names.size());
@@ -115,7 +115,7 @@ int main()
 
 		getline(fin, str);
 
-		///таблица смежности
+		///С‚Р°Р±Р»РёС†Р° СЃРјРµР¶РЅРѕСЃС‚Рё
 		while (fin)
 		{
 			int a = stoi(str.substr(0, str.find(' '))) - 1;
