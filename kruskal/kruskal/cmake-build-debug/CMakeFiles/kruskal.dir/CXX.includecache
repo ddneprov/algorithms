@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dneprovdanila/Desktop/kruskal/Edge.h
+string
+-
+
+/Users/dneprovdanila/Desktop/kruskal/ReadWriter.h
+Edge.h
+/Users/dneprovdanila/Desktop/kruskal/Edge.h
+iostream
+-
+fstream
+-
+vector
+-
+algorithm
+-
+
+/Users/dneprovdanila/Desktop/kruskal/main.cpp
+ReadWriter.h
+/Users/dneprovdanila/Desktop/kruskal/ReadWriter.h
+
