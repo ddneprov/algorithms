@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dneprovdanila/Desktop/Bellman-Ford_algorithm/Edge.h
+string
+-
+
+/Users/dneprovdanila/Desktop/Bellman-Ford_algorithm/ReadWriter.h
+Edge.h
+/Users/dneprovdanila/Desktop/Bellman-Ford_algorithm/Edge.h
+iostream
+-
+fstream
+-
+vector
+-
+
+/Users/dneprovdanila/Desktop/Bellman-Ford_algorithm/main.cpp
+ReadWriter.h
+/Users/dneprovdanila/Desktop/Bellman-Ford_algorithm/ReadWriter.h
+
