@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dneprovdanila/Desktop/Новая папка/edmonds_carp/main.cpp
+iostream
+-
+limits.h
+-
+string.h
+-
+queue
+-
+cmath
+-
+iostream
+-
+iomanip
+-
+fstream
+-
+list
+-
+
