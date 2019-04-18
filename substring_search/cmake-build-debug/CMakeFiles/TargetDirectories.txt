@@ -1,0 +1,3 @@
+/Users/dneprovdanila/Desktop/substring_search/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/dneprovdanila/Desktop/substring_search/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dneprovdanila/Desktop/substring_search/cmake-build-debug/CMakeFiles/substring_faces_.dir
