@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dneprovdanila/Desktop/substring_faces /main.cpp
+iostream
+-
+fstream
+-
+string
+-
+stdlib.h
+-
+
