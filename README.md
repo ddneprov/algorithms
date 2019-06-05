@@ -1,1 +1,2 @@
-# data-structures
+# algorithms
+HSE algorithms course
